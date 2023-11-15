@@ -87,6 +87,9 @@ Visualizing the posterior estimates with 95% pointwise credible intervals by
 ~$ python3 src/figures.py unknown 3000 m2
 ```
 
+#### Figure demo
+![known_m1_wo_MPT](https://github.com/yizenglistat/BVCMM4GT/assets/43308957/273d095a-85e9-465e-a9c0-5cc14885860e)
+
 - **Step 3:** Generate tables
 After gathering all saved `.RData` files from Step 1, the tables are rendered to `.tex` files: `tab_unknown.tex` and `tab_known.tex` by
 ```r
