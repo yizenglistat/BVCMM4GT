@@ -33,8 +33,8 @@ Download the zip file from this repository.
 
 
 ### Key arguments
-- `task_id`: integer, node id, default 1.
-- `nreps`: integer, number of repetitions, default 500.
+- `task_id`: integer, node id, default `1`.
+- `nreps`: integer, number of repetitions, default `500`.
 - `knowns`: boolean or a vector of boolean, TRUE or FALSE or both, default `c(TRUE, FALSE)`. 
 - `Ns`: integer or a vector of integers, 3000 or 5000 or both, default `c(3000,5000)`.
 - `pool_sizes`: integer or a vector of integers, 5 or 10 or both, default `c(5, 10)`.
