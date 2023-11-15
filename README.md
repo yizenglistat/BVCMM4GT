@@ -77,5 +77,4 @@ After gathering all saved `.RData` files from Step 1, the tables are rendered to
 
 ## Authors
 
-- [Yizeng Li](https://yizengli.com)
-- [Dewei Wang](https://sites.google.com/view/deweiwang)
+[Yizeng Li](https://yizengli.com) and [Dewei Wang](https://sites.google.com/view/deweiwang)
