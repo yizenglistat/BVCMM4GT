@@ -1,6 +1,3 @@
-Certainly! Here's a prettified version of your markdown:
-
-```markdown
 # BVCMM4GT: Bayesian Varying Coefficients Mixed Models for Group Testing Data
 
 This repository contains R/Rcpp programs for the article: **“Bayesian Varying Coefficients Mixed Models for Group Testing Data”** by Yizeng Li and Dewei Wang, which has been submitted for publication. 
@@ -75,6 +72,3 @@ After gathering all saved `.RData` files from Step 1, the tables are rendered to
 
 - [Yizeng Li](https://yizengli.com)
 - [Dewei Wang](https://sites.google.com/view/deweiwang)
-```
-
-Feel free to use this prettified version!
