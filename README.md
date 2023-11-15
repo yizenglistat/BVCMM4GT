@@ -69,7 +69,7 @@ After gathering all saved `.RData` files from Step 1, the figures are generated 
 	pool_sizes=c(5,10), 
 	model_names=c("m1", "m2"),
 	testings=c("IT", "DT","AT"),
-	knowns=c("TRUE, FALSE"), 
+	knowns=c(TRUE, FALSE), 
 	Ns=c(3000,5000),
 	sigma=0.5,
 	nreps=500)
