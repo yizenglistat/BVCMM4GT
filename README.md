@@ -66,13 +66,13 @@ After gathering all saved `.RData` files from Step 1, the figures are generated 
 ```r
 # load required libraries in main.R before generate figures
 > figures(folder="output", 
-		  pool_sizes=c(5,10), 
-		  model_names=c("m1", "m2"),
-		  testings=c("IT", "DT","AT"),
-		  knowns=c("TRUE, FALSE"), 
-		  Ns=c(3000,5000),
-		  sigma=0.5,
-		  nreps=500)
+	pool_sizes=c(5,10), 
+	model_names=c("m1", "m2"),
+	testings=c("IT", "DT","AT"),
+	knowns=c("TRUE, FALSE"), 
+	Ns=c(3000,5000),
+	sigma=0.5,
+	nreps=500)
 ```
 Visualizing the posterior estimates with 95% pointwise credible intervals by
 ```sh
@@ -92,23 +92,23 @@ After gathering all saved `.RData` files from Step 1, the tables are rendered to
 ```r
 # generate the table when Se and Sp are known
 > tables(folder="output", 
-		 pool_sizes=c(5,10), 
-		 model_names=c("m1", "m2"),
-		 testings=c("IT", "DT","AT"),
-		 isknown=TRUE,
-		 Ns=c(3000,5000),
-		 sigma=0.5,
-		 nreps=500)
+	pool_sizes=c(5,10), 
+	model_names=c("m1", "m2"),
+	testings=c("IT", "DT","AT"),
+	isknown=TRUE,
+	Ns=c(3000,5000),
+	sigma=0.5,
+	nreps=500)
 
 # generate the table when Se and Sp are unknown
-> tables(folder="output", 
-		 pool_sizes=c(5,10), 
-		 model_names=c("m1", "m2"),
-		 testings=c("IT", "DT","AT"),
-		 isknown=FALSE,
-		 Ns=c(3000,5000),
-		 sigma=0.5,
-		 nreps=500)
+> tables(folder="output",
+	pool_sizes=c(5,10),
+	model_names=c("m1", "m2"),
+	testings=c("IT", "DT","AT"),
+	isknown=FALSE,
+	Ns=c(3000,5000),
+	sigma=0.5,
+	nreps=500)
 ```
 
 ## Authors
