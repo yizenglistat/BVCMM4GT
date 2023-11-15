@@ -12,7 +12,6 @@ if(!cluster){
 	pool_sizes <- c(5, 10)
 	model_names <- c("m1", "m2")
 	testings <- c("DT", "AT", "IT")
-	known <- FALSE
 	N_test <- 600
 	sigma <- 0.5
 	folder <- 'output'
