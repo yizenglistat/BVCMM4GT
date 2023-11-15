@@ -38,17 +38,17 @@ Download the zip file from this repository.
 ~$ pwd
 ```
 
-- **Step 1:** Run `simulation.R` locally (not recommended)
+- **Step 1:** Run `main.R` locally (not recommended)
 ```r
 # This will run 500 repetitions for all possible scenarios in Setting1
 # It is computationally heavy (>24 hours)
-> source("simulation.R") # All saved .RData files will be saved under output folders
+> source("main.R") # All saved .RData files will be saved under output folders
 ```
 
 - **Step 1 (alternative):** Run `setting.R` on the cluster (recommended)
 Assuming 125 nodes are available, identified as `1,2,...,125`. Within each node, only 4 repetitions are needed for all possible scenarios in Setting1. In total, 500 runs are completed.
 ```sh
-~$ Rscript simulation.R NODE_ID
+~$ Rscript main.R NODE_ID
 ``` 
 
 - **Step 2:** Generate figures
