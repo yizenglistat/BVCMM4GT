@@ -197,7 +197,7 @@ tables <- function(folder="output",
 		}
 
 		latex(tabset,
-		      file=glue("{glue}/tab_known.tex"),
+		      file=glue("{folder}/tab_known.tex"),
 		      cgroup=c("","c=1", "c=5", "c=10"),
 		      n.cgroup=c(4, 1, 2, 2),
 		      na.blank=TRUE,
