@@ -15,8 +15,20 @@ misc_str <- function(string){
       }
 }
 
-glue_tab_item <- function(x, y, digits=3) return(unlist(lapply(glue("{round(x,digits)}({round(y,digits)})"), misc_str)))
+join_tab_item <- function(x, y){
 
+	out <- rep(NA, 17)
+	out[seq(1,16,3)] <- x
+	out[seq(2,17,3)] <- y
+	return(out)
+}
+
+glue_tab_item <- function(x, y, digits=3)
+{
+	if(x==""&&y=="") return("")
+	out <- unlist(lapply(glue("{round(x,digits)}({round(y,digits)})"), misc_str))
+	return(out)
+}
 
 do_logit <- function(x) log(x/(1-x))
 do_logit_inv <- function(x) return(1/(1+exp(-x)))
@@ -342,14 +354,14 @@ do_stats <- function(est, std, true){
 	return(list(bias=bias, rmse=rmse, ese=ese, ssd=ssd, med=med, lower=lower, upper=upper))
 }
 
-post_summary <- function(folder='./output', sample_size=5000, model_name='m1', pool_size=5, testing='DT', sigma=0.5, nreps=500, cache=TRUE, replace=FALSE)
+post_summary <- function(folder='./output', known='known', sample_size=5000, model_name='m1', pool_size=5, testing='DT', sigma=0.5, nreps=500, cache=TRUE, replace=FALSE)
 {
-	cache_name <- glue('{folder}/N{sample_size}/{model_name}/cj{pool_size}/{testing}_summary.RData')
+	cache_name <- glue('{folder}/{known}/{sample_size}/{model_name}/cj{pool_size}/{testing}_summary.RData')
 	if(cache&(!replace)&file.exists(cache_name)){
 		return(readRDS(cache_name))
 	}else{
 
-		file_name <- glue('{folder}/N{sample_size}/{model_name}/cj{pool_size}/{testing}_summary.h5')
+		file_name <- glue('{folder}/{known}/{sample_size}/{model_name}/cj{pool_size}/{testing}_summary.h5')
 		
 		if(file.exists(file_name)) file.remove(file_name)
 		
@@ -373,7 +385,7 @@ post_summary <- function(folder='./output', sample_size=5000, model_name='m1', p
 
 		for(rep in 1:nreps){
 			
-			rdata_file <- glue("{folder}/N{sample_size}/{model_name}/cj{pool_size}/{testing}/fitted_task{rep}.RData")
+			rdata_file <- glue("{folder}/{known}/{sample_size}/{model_name}/cj{pool_size}/{testing}/fitted_task{rep}.RData")
 			fitted <- readRDS(rdata_file)
 
 			# sigma
@@ -454,19 +466,5 @@ post_summary <- function(folder='./output', sample_size=5000, model_name='m1', p
 }
 
 rmse <- function(y_hat, y_true) sqrt(mean((y_hat-y_true)^2))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
