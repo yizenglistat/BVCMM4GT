@@ -529,3 +529,7 @@ latex(tabset,
       and empirical coverage probability of 95\\% credible intervals (CP95).",
       bold.header=FALSE,
 )
+
+
+
+
