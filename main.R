@@ -6,7 +6,7 @@ cluster <- FALSE
 if(!cluster){ 
 	#setwd("~/Projects/gpvcm")
 	task_id <- 1
-	nreps <- 2
+	nreps <- 500
 	knowns <- c(TRUE, FALSE)
 	Ns <- c(3000, 5000)
 	pool_sizes <- c(5, 10)
