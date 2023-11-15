@@ -31,7 +31,17 @@ Open the terminal and install it via git
 #### Windows
 Download the zip file from this repository.
 
-### Reproduce Simulation
+
+### Key arguments
+- `task_id`: integer, node id, default 1.
+- `nreps`: integer, number of repetitions, default 500.
+- `knowns`: boolean or a vector of boolean, TRUE or FALSE or both, default `c(TRUE, FALSE)`. 
+- `Ns`: integer or a vector of integers, 3000 or 5000 or both, default `c(3000,5000)`.
+- `pool_sizes`: integer or a vector of integers, 5 or 10 or both, default `c(5, 10)`.
+- `model_names`: string or a vector of strings, m1 or m2 or both, default `c("m1", "m2")`.
+- `testings`: string or a vector of strings, DT or AT or IT or any of them, default `c("DT", "AT", "IT")`.
+  
+### Reproduce simulation
 
 - **Step 0:** Ensure your current path is `USER_SAVED_PATH/BVCMM4GT`
 ```sh
