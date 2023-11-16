@@ -123,11 +123,8 @@ We simulated fake data, similar to realistic data, to conduct real data analysis
 ```
 
 ##### Figure demo
-###### VCM only
+###### Results from real data analysis
 ![app_vcm](https://github.com/yizenglistat/BVCMM4GT/assets/43308957/73cb97f4-d1e2-4958-8d37-518fbd7eb117)
-
-###### VCM v.s. semi-VCM 
-![app_vcm_partial](https://github.com/yizenglistat/BVCMM4GT/assets/43308957/d48ad770-1294-49bd-b967-de1783f4e018)
 
 ## Authors
 
