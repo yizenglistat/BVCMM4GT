@@ -89,7 +89,9 @@ Visualizing the posterior estimates with 95% pointwise credible intervals by
 
 #### Figure demo
 
-<p style="text-align: center;">N=5000, M1, and known Se, Sp</p>
+<p align="center">
+N=5000, M1, and known Se, Sp
+</p>
 
 ![known_m1_wo_MPT](https://github.com/yizenglistat/BVCMM4GT/assets/43308957/273d095a-85e9-465e-a9c0-5cc14885860e)
 
