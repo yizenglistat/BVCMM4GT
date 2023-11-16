@@ -138,7 +138,7 @@ if(FALSE){
 			break
 		}
 		data.gt = rbind(data.gt,tmp)
-		print(i)
+		#print(i)
 	}
 
 
@@ -219,7 +219,7 @@ if(FALSE){
 				"Race","New.Partner","Multiple.Partners","Contact","Symptoms",
 				"Ind.C.Result","Pool.C.Result")
 		data.ind = rbind(data.ind,tmp)
-		print(i)
+		#print(i)
 	}
 
 	## Combine data and save as excel file ##
