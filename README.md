@@ -98,6 +98,7 @@ Visualizing the posterior estimates with 95% pointwise credible intervals by
 After gathering all saved `.RData` files from Step 1, the tables are rendered to `.tex` files: `tab_unknown.tex` and `tab_known.tex` by
 ```r
 # load required libraries in main.R before generate tables
+# see details in the main.R 
 
 # generate the table when Se and Sp are known
 > tables(folder="output", 
