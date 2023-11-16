@@ -122,8 +122,7 @@ We simulated fake data, similar to realistic data, to conduct real data analysis
 > source("application_fake.R")
 ```
 
-##### Figure demo
-###### Results from real data analysis
+##### Figure demo (results from real data analysis)
 ![app_vcm](https://github.com/yizenglistat/BVCMM4GT/assets/43308957/73cb97f4-d1e2-4958-8d37-518fbd7eb117)
 
 ## Authors
