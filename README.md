@@ -41,7 +41,7 @@ Download the zip file from this repository.
 - `model_names`: string or a vector of strings, m1 or m2 or both, default `c("m1", "m2")`.
 - `testings`: string or a vector of strings, DT or AT or IT or any of them, default `c("DT", "AT", "IT")`.
   
-### Reproduce simulation
+### Reproduce simulations
 
 - **Step 0:** Ensure your current path is `USER_SAVED_PATH/BVCMM4GT`
 ```sh
@@ -114,6 +114,12 @@ After gathering all saved `.RData` files from Step 1, the tables are rendered to
 	Ns=c(3000,5000),
 	sigma=0.5,
 	nreps=500)
+```
+
+### Data Application
+We simulated fake data, similar to realistic data, to conduct real data analysis through running the following
+```r
+> source("application_fake.R")
 ```
 
 ## Authors
