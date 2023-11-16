@@ -31,7 +31,6 @@ Open the terminal and install it via git
 #### Windows
 Download the zip file from this repository.
 
-
 ### Key arguments
 - `task_id`: integer, node id, default `1`.
 - `nreps`: integer, number of repetitions, default `500`.
