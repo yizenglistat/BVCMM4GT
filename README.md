@@ -89,16 +89,11 @@ Visualizing the posterior estimates with 95% pointwise credible intervals by
 
 #### Figure demo
 
-<center>
-N=5000, M1, and known Se, Sp
-</center>
-
 ![known_m1_wo_MPT](https://github.com/yizenglistat/BVCMM4GT/assets/43308957/273d095a-85e9-465e-a9c0-5cc14885860e)
-
-<p style="text-align: center;">N=5000, M2, and unknown Se, Sp</p>
+**<center> N=5000, M1, and known Se, Sp </center>**
 
 ![unknown_m2_wo_MPT](https://github.com/yizenglistat/BVCMM4GT/assets/43308957/5a4d7b81-92a6-4890-a768-27b6d42b2391)
-
+**<center> N=5000, M2, and unknown Se, Sp </center>**
 
 - **Step 3:** Generate tables
 After gathering all saved `.RData` files from Step 1, the tables are rendered to `.tex` files: `tab_unknown.tex` and `tab_known.tex` by
