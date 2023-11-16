@@ -251,10 +251,10 @@ gpp_mcmc <- function(chain_id=1, data, options=mcmc_options()){
 			sp 			<- if(testing=="MPT") SP[1] else if(testing=="IT") SP[2] else SP
 		}
 
-		print(glue(
-			"iter:{iter} | sigma:{round(sigma,2)} | alpha:{round(alpha,2)}
-			se1:{round(se[1],4)} | se2:{round(se[2],4)} | se3:{round(se[3],4)}
-			sp1:{round(sp[1],4)} | sp2:{round(sp[2],4)} | sp3:{round(sp[3],4)}"))
+		# print(glue(
+		# 	"iter:{iter} | sigma:{round(sigma,2)} | alpha:{round(alpha,2)}
+		# 	se1:{round(se[1],4)} | se2:{round(se[2],4)} | se3:{round(se[3],4)}
+		# 	sp1:{round(sp[1],4)} | sp2:{round(sp[2],4)} | sp3:{round(sp[3],4)}"))
 
 		# update auxiliary h (or omega) 
 		fixs 			<- do_rowsums(X, beta)
