@@ -72,7 +72,7 @@ if(FALSE){
 	A.true = diag(7)
 	A.true[lower.tri(A.true)] = rnorm(7*6/2,0,0.5)
 	D.true = V.true %*% A.true %*% t(A.true) %*% V.true
-	b.true = t(rmvnorm(J, rep(0, 7), diag(7)))
+	b.true = t(mvtnorm::rmvnorm(J, rep(0, 7), diag(7)))
 
 	## Generate covariates ##
 	set.seed(1)
