@@ -1,5 +1,4 @@
 # ------------------------------------- tables (known)
-
 tables <- function(folder="output", 
 	pool_sizes=c(5,10), 
 	model_names=c("m1", "m2"),
@@ -49,12 +48,14 @@ tables <- function(folder="output",
 
 						ext 	<- apply(res$param_ext, 1, mean)
 						avg_time <- round(ext[4]/60,2)
+						
 						if(testing == "IT"){
-							save_pct <- substr(glue_tab_item(round(100*(1-ext[5]/N),2),0),1,4)
+							save_pct <- substr(glue_tab_item(round(100*(1-ext[5]/N),2),1),1,4)
 						}else{
-							save_pct <- substr(glue_tab_item(round(100*(1-ext[5]/N),2),0),1,5)
+							save_pct <- substr(glue_tab_item(round(100*(1-ext[5]/N),2),1),1,5)
 						}
-						avg_tests <- glue("{round(ext[4],2)}({save_pct}%)")
+
+						avg_tests <- glue("{round(ext[5],2)}({save_pct}%)")
 
 
 						if(N==5000){
@@ -251,31 +252,23 @@ tables <- function(folder="output",
 						is_pts 	<- is.na(res$levs)
 						
 						#table
-
-						if(testing %in% c("DT", "AT") ){
-							# sigma, Se, Sp
-							bias 	<- res$bias[is_pts]
-							ese	 	<- res$ese[is_pts]
-							ssd 	<- res$ssd[is_pts]
-							eci 	<- apply(res$param_eci, 1, mean)
-						}else{
-							bias 	<- ""
-							ese 	<- ""
-							ssd 	<- ""
-							eci 	<- ""
-						}
+						# sigma, Se, Sp
+						bias 	<- res$bias[is_pts]
+						ese	 	<- res$ese[is_pts]
+						ssd 	<- res$ssd[is_pts]
+						eci 	<- apply(res$param_eci, 1, mean)
 
 						ext 	<- apply(res$param_ext, 1, mean)
 						avg_time <- round(ext[4]/60,2)
 						if(testing == "IT"){
-							save_pct <- substr(glue_tab_item(round(100*(1-ext[5]/N),2),0),1,4)
+							save_pct <- substr(glue_tab_item(round(100*(1-ext[5]/N),2),1),1,4)
 						}else{
-							save_pct <- substr(glue_tab_item(round(100*(1-ext[5]/N),2),0),1,5)
+							save_pct <- substr(glue_tab_item(round(100*(1-ext[5]/N),2),1),1,5)
 						}
-						avg_tests <- glue("{round(ext[4],2)}({save_pct}%)")
+						avg_tests <- glue("{round(ext[5],2)}({save_pct}%)")
 
 
-						if(N==3000){
+						if(N==5000){
 							if(model_name=='m1'){
 								if(testing=='IT'){
 									tabset[1:17, 5] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
@@ -353,9 +346,10 @@ tables <- function(folder="output",
 				}
 			}
 		}
+		tabset <- tabset[-c(seq(3,12,3), seq(21,30,3), seq(39,48,3), seq(57,66,3)),]
 
 		latex(tabset,
-		      file=glue("{folder}/tab_unknown.tex"),
+		      file=glue("{folder}/tab_{ifelse(isknown, 'known', 'unknown')}.tex"),
 		      cgroup=c("","c=1", "c=5", "c=10"),
 		      n.cgroup=c(4, 1, 2, 2),
 		      na.blank=TRUE,
