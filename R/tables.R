@@ -198,7 +198,7 @@ tables <- function(folder="output",
 		}
 
 		latex(tabset,
-		      file=glue("{folder}/tab_known.tex"),
+		      file=glue("{folder}/{ifelse(isknown, 'known', 'unknown')}.tex"),
 		      cgroup=c("","c=1", "c=5", "c=10"),
 		      n.cgroup=c(4, 1, 2, 2),
 		      na.blank=TRUE,
@@ -217,25 +217,22 @@ tables <- function(folder="output",
 	}else{
 
 		# ------------------------------------- tables (unknown)
-
-		df <- c()
-		dataset <- matrix(NA, ncol=5, nrow=119) # data part
-		colnames(dataset) <- c("IT", "DT", "AT", "DT", "AT")
-		rm_names <- function(x) {x[c(FALSE, x[-1]==x[-length(x)])] <- ""; x} 
-		front_cols <- apply(expand.grid(
-			Summary=c("Bias (CP95)", "SSD (ESE)", "", "Average Number of Tests (savings in %)", "Average Time (in minutes)", ""), 
-			Parameter=c("$\\sigma$", "$S_{e(1)}$", "$S_{e(2)}$", "$S_{p(1)}$", "$S_{p(2)}$"),
-			Model=c("M1", "M2"),
-			Samplesize=c("$3000$", "$5000$"))[, 4:1], 2, rm_names)
-		front_cols <- head(front_cols,-1)
-		colnames(front_cols) <- c("Sample Size", "Model", "Parameter", "Summary")
-		tabset <- cbind(front_cols, dataset)
-		tabset <- tabset[-c(4:6, 10:12, 16:18, 22:24,
-			34:36, 40:42, 46:48, 52:54,
-			64:66, 70:72, 76:78, 82:84,
-			94:96, 100:102, 106:108, 112:114), ]
-
 		for(N in Ns){
+		
+			df <- c()
+			dataset <- matrix(NA, ncol=5, nrow=59) # data part
+			colnames(dataset) <- c("IT", "DT", "AT", "DT", "AT")
+			rm_names <- function(x) {x[c(FALSE, x[-1]==x[-length(x)])] <- ""; x} 
+			front_cols <- apply(expand.grid(
+				Summary=c("Bias (CP95)", "SSD (ESE)", "", "Average Number of Tests (savings in %)", "Average Time (in minutes)", ""), 
+				Parameter=c("$\\sigma$", "$S_{e(1)}$", "$S_{e(2)}$", "$S_{p(1)}$", "$S_{p(2)}$"),
+				Model=c("M1", "M2"))[, 3:1], 2, rm_names)
+			front_cols <- head(front_cols,-1)
+			
+			tabset <- cbind(front_cols, dataset)
+			tabset <- tabset[-c(4:6, 10:12, 16:18, 22:24,
+				34:36, 40:42, 46:48, 52:54), ]
+
 			for(model_name in model_names){
 				for(pool_size in pool_sizes){
 					for(testing in testings){
@@ -271,73 +268,36 @@ tables <- function(folder="output",
 						if(N==5000){
 							if(model_name=='m1'){
 								if(testing=='IT'){
+									tabset[1:17, 4] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
+								}
+								if(testing=="DT"&pool_size==5){
 									tabset[1:17, 5] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
 								}
-								if(testing=="DT"&pool_size==5){
+								if(testing=="AT"&pool_size==10){
 									tabset[1:17, 6] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
 								}
-								if(testing=="AT"&pool_size==10){
+								if(testing=="DT"&pool_size==5){
 									tabset[1:17, 7] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
 								}
-								if(testing=="DT"&pool_size==5){
+								if(testing=="AT"&pool_size==10){
 									tabset[1:17, 8] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
 								}
-								if(testing=="AT"&pool_size==10){
-									tabset[1:17, 9] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
 							}
 							if(model_name=='m2'){
 								if(testing=='IT'){
+									tabset[19:35, 4] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
+								}
+								if(testing=="DT"&pool_size==5){
 									tabset[19:35, 5] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
 								}
-								if(testing=="DT"&pool_size==5){
+								if(testing=="AT"&pool_size==10){
 									tabset[19:35, 6] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
 								}
-								if(testing=="AT"&pool_size==10){
+								if(testing=="DT"&pool_size==5){
 									tabset[19:35, 7] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
 								}
-								if(testing=="DT"&pool_size==5){
+								if(testing=="AT"&pool_size==10){
 									tabset[19:35, 8] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-								if(testing=="AT"&pool_size==10){
-									tabset[19:35, 9] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-							}
-						}
-
-						if(N==5000){
-							if(model_name=='m1'){
-								if(testing=='IT'){
-									tabset[37:53, 5] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-								if(testing=="DT"&pool_size==5){
-									tabset[37:53, 6] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-								if(testing=="AT"&pool_size==10){
-									tabset[37:53, 7] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-								if(testing=="DT"&pool_size==5){
-									tabset[37:53, 8] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-								if(testing=="AT"&pool_size==10){
-									tabset[37:53, 9] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-							}
-							if(model_name=='m2'){
-								if(testing=='IT'){
-									tabset[55:71, 5] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-								if(testing=="DT"&pool_size==5){
-									tabset[55:71, 6] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-								if(testing=="AT"&pool_size==10){
-									tabset[55:71, 7] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-								if(testing=="DT"&pool_size==5){
-									tabset[55:71, 8] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-								if(testing=="AT"&pool_size==10){
-									tabset[55:71, 9] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
 								}
 							}
 						}
@@ -345,24 +305,24 @@ tables <- function(folder="output",
 					}
 				}
 			}
-		}
-		tabset <- tabset[-c(seq(3,12,3), seq(21,30,3), seq(39,48,3), seq(57,66,3)),]
+			tabset <- tabset[-c(seq(3,12,3), seq(21,30,3)),]
 
-		latex(tabset,
-		      file=glue("{folder}/tab_{ifelse(isknown, 'known', 'unknown')}.tex"),
-		      cgroup=c("","c=1", "c=5", "c=10"),
-		      n.cgroup=c(4, 1, 2, 2),
-		      na.blank=TRUE,
-		      #rowlabel=c("Sample Size", "Model", "Parameter", "Summary"),
-		      booktabs=TRUE,
-		      rownames=NULL,
-		      collabel.just=rep("c", 9),
-		      col.just=c(rep("c",4), rep("r", 8)),
-		      where="!htbp",
-		      caption="Simulation results for models M1 and M2 with sample sizes $N\\in\\{3000,5000\\}$, $c\\in\\{5,10\\}$ under both DT and AT protocols, when assay sensitivities and specificities are unknown, respectively. 
-		      Note the summary statistics for $\\sigma$ include average bias (Bias), sample standard deviation (SSD) of the 500 posterior median estimates, the average of the 500 estimates of the posterior standard deviation (ESE), 
-		      and empirical coverage probability of 95\\% credible intervals (CP95).",
-		      bold.header=FALSE,
-		)
+			latex(tabset,
+				file=glue("{folder}/{ifelse(isknown, 'known', 'unknown')}_{N}.tex"),
+				cgroup=c("","c=1", "c=5", "c=10"),
+				n.cgroup=c(3, 1, 2, 2),
+				na.blank=TRUE,
+				#rowlabel=c("Sample Size", "Model", "Parameter", "Summary"),
+				booktabs=TRUE,
+				rownames=NULL,
+				collabel.just=rep("c", 8),
+				col.just=c(rep("c",3), rep("r", 8)),
+				where="!htbp",
+				caption="Simulation results for models M1 and M2 with sample sizes $N\\in\\{3000,5000\\}$, $c\\in\\{5,10\\}$ under both DT and AT protocols, when assay sensitivities and specificities are unknown, respectively. 
+				Note the summary statistics for $\\sigma$ include average bias (Bias), sample standard deviation (SSD) of the 500 posterior median estimates, the average of the 500 estimates of the posterior standard deviation (ESE), 
+				and empirical coverage probability of 95\\% credible intervals (CP95).",
+				bold.header=FALSE,
+			)
+		}
 	}
 }
