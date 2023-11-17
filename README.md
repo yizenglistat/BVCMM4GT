@@ -123,6 +123,9 @@ After gathering all saved `.RData` files from Step 1, the tables are rendered to
 	sigma=0.5,
 	nreps=500)
 ```
+##### Table demo (results from N=5000 and unknown Se, Sp case)
+
+<img width="701" alt="demo_tab" src="https://github.com/yizenglistat/BVCMM4GT/assets/43308957/b0065f47-edde-4aaa-abe4-b6ee7655cab6">
 
 ### Data Application
 We simulated fake data, similar to realistic data, to conduct real data analysis through running the following
