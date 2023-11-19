@@ -3,7 +3,7 @@ tables <- function(folder="output",
 	pool_sizes=c(5,10), 
 	model_names=c("m1", "m2"),
 	testings=c("IT", "DT","AT"),
-	isknown=TRUE,
+	isknown=FALSE,
 	Ns=c(3000,5000),
 	sigma=0.5,
 	nreps=500)
@@ -58,7 +58,7 @@ tables <- function(folder="output",
 						avg_tests <- glue("{round(ext[5],2)}({save_pct}%)")
 
 
-						if(N==5000){
+						if(N==3000){
 							if(model_name=='m1'){
 								if(testing=='IT'){
 									tabset[1, 5] <- glue_tab_item(bias, eci)
@@ -264,43 +264,41 @@ tables <- function(folder="output",
 						}
 						avg_tests <- glue("{round(ext[5],2)}({save_pct}%)")
 
-
-						if(N==5000){
-							if(model_name=='m1'){
-								if(testing=='IT'){
-									tabset[1:17, 4] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-								if(testing=="DT"&pool_size==5){
-									tabset[1:17, 5] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-								if(testing=="AT"&pool_size==10){
-									tabset[1:17, 6] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-								if(testing=="DT"&pool_size==5){
-									tabset[1:17, 7] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-								if(testing=="AT"&pool_size==10){
-									tabset[1:17, 8] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
+						if(model_name=='m1'){
+							if(testing=='IT'){
+								tabset[1:17, 4] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
 							}
-							if(model_name=='m2'){
-								if(testing=='IT'){
-									tabset[19:35, 4] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-								if(testing=="DT"&pool_size==5){
-									tabset[19:35, 5] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-								if(testing=="AT"&pool_size==10){
-									tabset[19:35, 6] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-								if(testing=="DT"&pool_size==5){
-									tabset[19:35, 7] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
-								if(testing=="AT"&pool_size==10){
-									tabset[19:35, 8] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
-								}
+							if(testing=="DT"&pool_size==5){
+								tabset[1:17, 5] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
+							}
+							if(testing=="AT"&pool_size==10){
+								tabset[1:17, 6] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
+							}
+							if(testing=="DT"&pool_size==5){
+								tabset[1:17, 7] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
+							}
+							if(testing=="AT"&pool_size==10){
+								tabset[1:17, 8] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
 							}
 						}
+						if(model_name=='m2'){
+							if(testing=='IT'){
+								tabset[19:35, 4] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
+							}
+							if(testing=="DT"&pool_size==5){
+								tabset[19:35, 5] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
+							}
+							if(testing=="AT"&pool_size==10){
+								tabset[19:35, 6] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
+							}
+							if(testing=="DT"&pool_size==5){
+								tabset[19:35, 7] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
+							}
+							if(testing=="AT"&pool_size==10){
+								tabset[19:35, 8] <- join_tab_item(c(glue_tab_item(bias, eci), avg_tests), c(glue_tab_item(ssd, ese), avg_time))
+							}
+						}
+
 						print(glue("{testing} data done!"))
 					}
 				}
