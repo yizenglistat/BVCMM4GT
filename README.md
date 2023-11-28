@@ -9,6 +9,9 @@ This repository contains R/Rcpp programs for the article: **“Bayesian Varying 
 ## Getting Started
 
 ### Dependencies
+
+- R >= 3.6
+
 A list of required packages is available:
 - BayesLogit
 - geoR (version: 1.7-1)
@@ -20,7 +23,7 @@ A list of required packages is available:
 - glue
 - Hmisc
 
-Please refer to the [install and upgrade documentation on the R software official website](https://www.r-project.org/) for all available installation methods.
+Please refer to the [install and upgrade documentation on the R software official website](https://www.r-project.org/) for all available installation methods. 
 
 ### Installing
 
