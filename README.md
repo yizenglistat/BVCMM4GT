@@ -11,7 +11,7 @@ This repository contains R/Rcpp programs for the article: **“Bayesian Varying 
 ### Dependencies
 A list of required packages is available:
 - BayesLogit
-- geoR
+- geoR (version: 1.7-1)
 - ltsa
 - mvtnorm
 - Matrix
