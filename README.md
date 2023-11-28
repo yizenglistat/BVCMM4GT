@@ -2,9 +2,8 @@
 
 This repository contains R/Rcpp programs for the article: **“Bayesian Varying Coefficients Mixed Models for Group Testing Data”** by Yizeng Li and Dewei Wang, which has been submitted for publication. Here we also present a single iteration of our Bayesian backfitting algorithm below
 
-<p align="center">
-  <img src="https://github.com/yizenglistat/BVCMM4GT/raw/main/assets/43308957/a001d3da-8e56-4c88-99cb-88a95244c1c7.jpg" alt="Image Description">
-</p>
+![image](https://github.com/yizenglistat/BVCMM4GT/assets/43308957/34d064ff-4a5b-4395-b12f-22ec1c8328fa)
+
 
 ## Getting Started
 
