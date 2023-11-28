@@ -14,6 +14,7 @@ This repository contains R/Rcpp programs for the article: **“Bayesian Varying 
 
 A list of required packages is available:
 - BayesLogit
+- coda
 - geoR-[1.7-1](https://cran.r-project.org/src/contrib/Archive/geoR/geoR_1.7-1.tar.gz)
 - ltsa
 - mvtnorm
