@@ -136,7 +136,7 @@ After gathering all saved `.RData` files from Step 1, the tables are rendered to
 ### Data Application
 We simulated fake data, similar to realistic data, to conduct real data analysis through running the following
 ```r
-> source("application_fake.R")
+> source("run_fake.R")
 ```
 
 ##### Figure demo (results from real data analysis)
