@@ -4,6 +4,9 @@ This repository contains R/Rcpp programs for the article: **“Bayesian Varying 
 
 ![image](https://github.com/yizenglistat/BVCMM4GT/assets/43308957/6726276b-fe38-4ad0-95f4-7e0367c528d3)
 
+<div align="center">
+  <img src="https://github.com/yizenglistat/BVCMM4GT/raw/main/assets/43308957/6726276b-fe38-4ad0-95f4-7e0367c528d3.png" alt="Your Image Description">
+</div>
 
 ## Getting Started
 
